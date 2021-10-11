@@ -5,18 +5,13 @@
 
 Game::Game()
 {
-    initVariables();
-    initWindow();
+    initiate_variables();
+    initiate_window();
 }
 
 Game::~Game()
 {
     delete window;
-}
-
-const bool Game::getWindowIsOpen() const
-{
-    return window->isOpen();
 }
 
 void Game::splashScreen()
@@ -28,23 +23,28 @@ if (!font.loadFromFile("arial.ttf"))
 }
     sf::Text text;
     text.setFont(font); // font is a sf::Font
-    text.setString("Press Enter To Begin Game\n move your player with the arrow keys \n hold the 'space' key to fire \n your goal is to destroy the centipede before it eats you");
+    text.setString(" Hold 'Enter' to begin \n Move with the arrow keys \n Hold the 'space' key to fire \n Your goal is to destroy the centipede \n before it eats you");
     text.setCharacterSize(24); // in pixels, not points!
-    text.setFillColor(sf::Color::Red);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setFillColor(sf::Color::White);
 
 
     window->clear();
-    window->draw(text);
-    while(!gameBegin&&window->isOpen())
+    while(!gameBegin && window->isOpen())
     {
     if((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)))
         gameBegin=true;
-    window->display();
-
+        window->draw(text);
+        window->display();
     }
 
 }
+
+const bool Game::Is_Window_Open() const
+{
+    return window->isOpen();
+}
+
+
 
 void Game::update()
 {
@@ -116,12 +116,12 @@ bool Game::render()
 }
 
 // private functions
-void Game::initVariables()
+void Game::initiate_variables()
 {
     window = nullptr;
 }
 
-void Game::initWindow()
+void Game::initiate_window()
 {
     window = new sf::RenderWindow;
     window->create(sf::VideoMode(600, 600), "Centipede++");

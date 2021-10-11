@@ -9,7 +9,7 @@ int main()
 
     game.splashScreen();
 
-    while (game.getWindowIsOpen())
+    while (game.Is_Window_Open())
     {
         game.update();
         if(!game.render())

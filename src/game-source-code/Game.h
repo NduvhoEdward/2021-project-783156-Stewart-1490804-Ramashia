@@ -19,26 +19,30 @@ class Game
         Game();
         virtual ~Game();
 
-        const bool getWindowIsOpen() const;
+        void splashScreen();
+
+        const bool Is_Window_Open() const;
 
         void update();
         bool render();
-        void splashScreen();
+
 
     protected:
 
     private:
+        void initiate_variables();
+        void initiate_window();
+        bool firstMove=true;
+        bool continueGame=true;
+        bool gameBegin=false;
+
+        sf::RenderWindow*window;
         Centipede pede;
         Centipede pede2;
         Player player;
-        sf::RenderWindow*window;
-        void initVariables();
-        void initWindow();
-        bool firstMove=true;
         std::vector<Blaster*> bullets;
         std::vector<int> delete_bullets;
-        bool continueGame=true;
-        bool gameBegin=false;
+
 };
 
 #endif // GAME_H
