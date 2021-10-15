@@ -61,8 +61,25 @@ bool Game::render()
 
     window->clear();
     player.move_player();
-    pede.draw_centipede(window);
     player.draw_player(window);
+
+    pede1.draw_centipede(window);
+    pede2.draw_centipede(window);
+    pede3.draw_centipede(window);
+    pede4.draw_centipede(window);
+    pede5.draw_centipede(window);
+    pede6.draw_centipede(window);
+    pede7.draw_centipede(window);
+    pede8.draw_centipede(window);
+    pede9.draw_centipede(window);
+    pede10.draw_centipede(window);
+
+    pede1.move_centipede();
+    auto x = pede1.centipede_getPosX();
+    auto y = pede1.centipede_getPosY();
+    if(x>=0 && x<600 && y<600){
+        pede2.centipede_setPos(x-20.f, y);
+    }
 
     Blaster *curBullet;
     curBullet=player.fire_bullet();

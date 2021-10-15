@@ -56,6 +56,11 @@ float Centipede::centipede_getPosY()
     return centipede.getPosition().y;
 }
 
+void Centipede::centipede_setPos(float x, float y)
+{
+    return centipede.setPosition(x, y);
+}
+
 void Centipede::initCentipede()
 {
     centipede.setRadius(10.f);

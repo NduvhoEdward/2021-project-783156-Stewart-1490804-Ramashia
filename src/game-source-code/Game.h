@@ -36,6 +36,17 @@ class Game
         bool continueGame=true;
         bool gameBegin=false;
 
+	Centipede pede1;
+        Centipede pede2;
+        Centipede pede3;
+        Centipede pede4;
+        Centipede pede5;
+        Centipede pede6;
+        Centipede pede7;
+        Centipede pede8;
+        Centipede pede9;
+        Centipede pede10;
+
         sf::RenderWindow*window;
         Centipede pede;
         Centipede pede2;

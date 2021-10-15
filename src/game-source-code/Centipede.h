@@ -16,6 +16,8 @@ class Centipede
         void move_centipede();
         float centipede_getPosX();
         float centipede_getPosY();
+	void centipede_setPos(float x, float y);
+
 
 
     protected:
