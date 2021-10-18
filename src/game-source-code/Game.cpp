@@ -60,6 +60,7 @@ bool Game::render()
 {
 
     window->clear();
+
     player.move_player();
     player.draw_player(window);
 
@@ -131,13 +132,14 @@ bool Game::render()
     pede2.move_centipede();
     }
 
+    //Mushrooms rendering
+    mushrm.drawMushrooms(window);
+
     window->display();
     firstMove=false;
 
 
     return continueGame;
-
-
 }
 
 // private functions

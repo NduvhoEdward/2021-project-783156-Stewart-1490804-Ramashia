@@ -12,6 +12,7 @@
 #include "Player.h"
 #include <vector>
 #include "Blaster.h"
+#include "Mushrooms.h"
 
 class Game
 {
@@ -36,7 +37,7 @@ class Game
         bool continueGame=true;
         bool gameBegin=false;
 
-	Centipede pede1;
+        Centipede pede1;
         Centipede pede2;
         Centipede pede3;
         Centipede pede4;
@@ -49,10 +50,13 @@ class Game
 
         sf::RenderWindow*window;
         Centipede pede;
-        Centipede pede2;
+        //Centipede pede2;
         Player player;
         std::vector<Blaster*> bullets;
         std::vector<int> delete_bullets;
+
+        //Mushrooms
+        Mushrooms mushrm;
 
 };
 

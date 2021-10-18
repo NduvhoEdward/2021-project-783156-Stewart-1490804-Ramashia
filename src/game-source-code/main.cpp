@@ -7,7 +7,7 @@ int main()
 {
     Game game;
 
-    game.splashScreen();
+    //game.splashScreen();
 
     while (game.Is_Window_Open())
     {
