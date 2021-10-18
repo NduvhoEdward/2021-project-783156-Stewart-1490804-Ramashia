@@ -10,7 +10,7 @@ const int LowerBound = 100;
 
 Mushrooms::Mushrooms(){
     //ctor
-    mushroomTexture.loadFromFile("resources/smario_mashroom2.png");
+    mushroomTexture.loadFromFile("resources/mashroom.png");
     sf::Sprite mushroom(mushroomTexture);
 
     mushroom.scale(sf::Vector2f(0.1f, 0.1f));
@@ -23,15 +23,7 @@ Mushrooms::~Mushrooms(){
     //dtor
 }
 
-void Mushrooms::initMushrooms(){
-
-}
-
-
 void Mushrooms::drawMushrooms(sf::RenderWindow* window){
-
-    //window->clear(sf::Color(16,16,16,255)); // Dark gray.
-    // Drawing our sprite.
 
     for(int i=0; i<Init_Num_Of_Mushrooms; i++){
         window->draw(mushroomSprites[i]);
@@ -57,17 +49,12 @@ void Mushrooms::CreateMushPositions(){
 
         temp.clear();
         x = (rand()%HorizontalBound)+1;
-        y = (rand()%VerticalBound)+1;
+        y = (rand()%VerticalBound)-LowerBound;
 
         temp.push_back(x);
         temp.push_back(y);
 
         mushPositions.push_back(temp);
-    }
-
-    for(int i = 0; i<Init_Num_Of_Mushrooms; i++){
-
-        std::cout << mushPositions[i][0] << "  " << mushPositions[i][1] << std::endl;
     }
 }
 

@@ -21,21 +21,19 @@ class Mushrooms{
         Mushrooms();
         virtual ~Mushrooms();
 
-        sf::RectangleShape mushrooms;
-        void initMushrooms();
-        void renderMushrooms(sf::RenderWindow* win);
         void drawMushrooms(sf::RenderWindow* win);
 
     protected:
 
     private:
+
+
         sf::Texture mushroomTexture;
-        //std::vector<std::vector<sf::Sprite>> mushroomSprites;
         std::vector<sf::Sprite> mushroomSprites;
-        //sf::Sprite mushroom
-        void createMushrooms(sf::Sprite& mushroom);
-        void CreateMushPositions();
         std::vector<std::vector<int>> mushPositions;   /// Make vector FLOAT type
+
+        void CreateMushPositions();
+        void createMushrooms(sf::Sprite& mushroom);
 
 };
 
