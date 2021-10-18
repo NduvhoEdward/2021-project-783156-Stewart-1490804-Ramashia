@@ -2,7 +2,11 @@
 #include "Mushrooms.h"
 #include <iostream>
 
-
+const int Init_Num_Of_Mushrooms = 20;
+const int VerticalBound = 500;
+const int HorizontalBound = 500;
+const int UpperBound = 50;
+const int LowerBound = 100;
 
 Mushrooms::Mushrooms(){
     //ctor
@@ -11,17 +15,8 @@ Mushrooms::Mushrooms(){
 
     mushroom.scale(sf::Vector2f(0.1f, 0.1f));
 
-    //sf::Vector2u size = mushroomTexture.getSize();
-    //mushroom.setOrigin(size.x / 2, size.y / 2);
-    //sf::Vector2f increment(0.4f, 0.4f);
-
-    //std::cout << size.x <<"  "<<size.y <<std::endl;
-
-
-    //std::vector<sf::Sprite> temp;
-    //temp.push_back(mushroom);
+    CreateMushPositions();
     createMushrooms(mushroom);
-
 }
 
 Mushrooms::~Mushrooms(){
@@ -30,25 +25,50 @@ Mushrooms::~Mushrooms(){
 
 void Mushrooms::initMushrooms(){
 
-//    mushrooms.setSize(sf::Vector2f(10.f,10.f));
-//    mushrooms.setFillColor(sf::Color::Cyan);
-//    sf::Sprite s = myMatrix[x][y];
-
-
 }
 
 
 void Mushrooms::drawMushrooms(sf::RenderWindow* window){
 
     //window->clear(sf::Color(16,16,16,255)); // Dark gray.
-    window->draw(mushroomSprites[0]); // Drawing our sprite.
-    //window->display();
+    // Drawing our sprite.
+
+    for(int i=0; i<Init_Num_Of_Mushrooms; i++){
+        window->draw(mushroomSprites[i]);
+    }
 }
 
-void Mushrooms::createMushrooms(sf::Sprite mushroom){
+void Mushrooms::createMushrooms(sf::Sprite& mushroom){
 
-    mushroomSprites.push_back(mushroom);
+    for(int i=0; i<Init_Num_Of_Mushrooms; i++){
+
+        mushroom.setPosition(mushPositions[i][0],mushPositions[i][1]);
+        mushroomSprites.push_back(mushroom);
+    }
 }
 
+void Mushrooms::CreateMushPositions(){
+
+    auto x = 0, y = 0;
+    std::vector<int> temp;
+    srand((unsigned)time(NULL));
+
+    for(int i=0; i<Init_Num_Of_Mushrooms; i++){
+
+        temp.clear();
+        x = (rand()%HorizontalBound)+1;
+        y = (rand()%VerticalBound)+1;
+
+        temp.push_back(x);
+        temp.push_back(y);
+
+        mushPositions.push_back(temp);
+    }
+
+    for(int i = 0; i<Init_Num_Of_Mushrooms; i++){
+
+        std::cout << mushPositions[i][0] << "  " << mushPositions[i][1] << std::endl;
+    }
+}
 
 

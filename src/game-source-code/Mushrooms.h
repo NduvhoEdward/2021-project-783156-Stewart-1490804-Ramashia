@@ -33,7 +33,10 @@ class Mushrooms{
         //std::vector<std::vector<sf::Sprite>> mushroomSprites;
         std::vector<sf::Sprite> mushroomSprites;
         //sf::Sprite mushroom
-        void createMushrooms(sf::Sprite mushroom);
+        void createMushrooms(sf::Sprite& mushroom);
+        void CreateMushPositions();
+        std::vector<std::vector<int>> mushPositions;   /// Make vector FLOAT type
+
 };
 
 
