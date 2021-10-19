@@ -96,18 +96,14 @@ bool Game::render()
       bullets[i]->move_blaster();
       bullets[i]->draw_blaster(window);
 
-      if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede1.centipede_getPosX())
+        if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede1.centipede_getPosX())
         continueGame=false;
 
-      if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede2.centipede_getPosX()&&!firstMove)
+        if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede2.centipede_getPosX()&&!firstMove)
         continueGame=false;
 
-
-
-
-
-    if(bullets[i]->blaster_getPosY()<=0)
-    delete_bullets.push_back(i);
+        if(bullets[i]->blaster_getPosY()<=0)
+        delete_bullets.push_back(i);
     }
 
 
@@ -124,7 +120,7 @@ bool Game::render()
 
     //Mushrooms rendering
     mushrm.drawMushrooms(window);
-    
+
 
     window->display();
     firstMove=false;
