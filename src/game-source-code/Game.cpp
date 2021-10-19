@@ -74,20 +74,16 @@ bool Game::render()
     pede9.draw_centipede(window);
     pede10.draw_centipede(window);
 
+    pede10.centipede_setPos(pede9.centipede_getPosX(), pede9.centipede_getPosY());
+    pede9.centipede_setPos(pede8.centipede_getPosX(), pede8.centipede_getPosY());
+    pede8.centipede_setPos(pede7.centipede_getPosX(), pede7.centipede_getPosY());
+    pede7.centipede_setPos(pede6.centipede_getPosX(), pede6.centipede_getPosY());
+    pede6.centipede_setPos(pede5.centipede_getPosX(), pede5.centipede_getPosY());
+    pede5.centipede_setPos(pede4.centipede_getPosX(), pede4.centipede_getPosY());
+    pede4.centipede_setPos(pede3.centipede_getPosX(), pede3.centipede_getPosY());
+    pede3.centipede_setPos(pede2.centipede_getPosX(), pede2.centipede_getPosY());
+    pede2.centipede_setPos(pede1.centipede_getPosX(), pede1.centipede_getPosY());
     pede1.move_centipede();
-
-    auto x = pede1.centipede_getPosX();
-    auto y = pede1.centipede_getPosY();
-
-    pede2.centipede_setPos(x,y,20.f);
-    pede3.centipede_setPos(x,y,40.f);
-    pede4.centipede_setPos(x,y,60.f);
-    pede5.centipede_setPos(x,y,80.f);
-    pede6.centipede_setPos(x,y,100.f);
-    pede7.centipede_setPos(x,y,120.f);
-    pede8.centipede_setPos(x,y,140.f);
-    pede9.centipede_setPos(x,y,160.f);
-    pede10.centipede_setPos(x,y,180.f);
 
     Blaster *curBullet;
     curBullet=player.fire_bullet();
@@ -99,7 +95,7 @@ bool Game::render()
       bullets[i]->move_blaster();
       bullets[i]->draw_blaster(window);
 
-      if(bullets[i]->blaster_getPosY()== pede.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede.centipede_getPosX())
+      if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede1.centipede_getPosX())
         continueGame=false;
 
       if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede2.centipede_getPosX()&&!firstMove)
@@ -121,15 +117,8 @@ bool Game::render()
     }
     delete_bullets.clear();
 
-    if(player.player_getPosY()== pede.centipede_getPosY() && player.player_getPosX()== pede.centipede_getPosX())
+    if(player.player_getPosY()== pede1.centipede_getPosY() && player.player_getPosX()== pede1.centipede_getPosX())
         continueGame=false;
-
-    pede.move_centipede();
-    if(!firstMove)
-    {
-    pede2.draw_centipede(window);
-    pede2.move_centipede();
-    }
 
     window->display();
     firstMove=false;
