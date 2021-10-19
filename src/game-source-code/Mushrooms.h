@@ -27,7 +27,6 @@ class Mushrooms{
 
     private:
 
-
         sf::Texture mushroomTexture;
         std::vector<sf::Sprite> mushroomSprites;
         std::vector<std::vector<int>> mushPositions;   /// Make vector FLOAT type
