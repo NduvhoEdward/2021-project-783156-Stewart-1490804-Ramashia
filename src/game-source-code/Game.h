@@ -49,8 +49,7 @@ class Game
         Centipede pede10;
 
         sf::RenderWindow*window;
-        Centipede pede;
-        //Centipede pede2;
+
         Player player;
         std::vector<Blaster*> bullets;
         std::vector<int> delete_bullets;
