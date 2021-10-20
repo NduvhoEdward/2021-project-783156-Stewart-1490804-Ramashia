@@ -44,11 +44,8 @@ float Blaster::blaster_getPosY(){
 
 void Blaster::initBlaster(){
 
-    auto blasterSize = 20;
-    blasterTexture.loadFromFile("resources/blaster.png");
-    blaster.setTexture(blasterTexture);
-    blaster.scale(sf::Vector2f(0.1538f, 0.1538f));
-    blaster.setPosition(windowWidth/2,windowHeight-blasterSize);
+    blaster.setSize(sf::Vector2f(2.f,8.f));
+    blaster.setFillColor(sf::Color::Red);
 }
 
 void Blaster::updateBlaster(){
@@ -76,10 +73,6 @@ void Blaster::updateBlaster(){
         if(blaster.getPosition().y>=590)
             return;
         blaster.move(0.f, 10.f);
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-
-        Bullet bullt;
     }
 }
 

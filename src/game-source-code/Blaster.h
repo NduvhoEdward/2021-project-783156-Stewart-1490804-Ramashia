@@ -29,7 +29,7 @@ class Blaster{
         bool foward=true;
 
         sf::Texture blasterTexture;
-        sf::Sprite blaster;
+        sf::RectangleShape blaster;
 
 };
 

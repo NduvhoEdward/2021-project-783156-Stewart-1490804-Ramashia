@@ -22,7 +22,8 @@ class Player
     protected:
 
     private:
-        sf::RectangleShape player;
+        sf::Sprite player;
+        sf::Texture playerTexture;
         void initPlayer();
         bool foward=true;
 

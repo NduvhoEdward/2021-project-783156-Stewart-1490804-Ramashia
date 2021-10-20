@@ -3,6 +3,8 @@
 #include "Player.h"
 #include "Mushrooms.h"
 
+const int FrameRate = 5;
+
 Game::Game()
 {
     initiate_variables();
@@ -105,9 +107,6 @@ bool Game::render()
         continueGame=false;
 
 
-
-
-
     if(bullets[i]->blaster_getPosY()<=0)
     delete_bullets.push_back(i);
     }
@@ -127,29 +126,23 @@ bool Game::render()
     //Mushrooms rendering
     mushrm.drawMushrooms(window);
 
-    //Blaster
-    blastr.draw_blaster(window);
-
-
-
     window->display();
     firstMove=false;
-
 
     return continueGame;
 }
 
 // private functions
-void Game::initiate_variables()
-{
+void Game::initiate_variables(){
+
     window = nullptr;
 }
 
-void Game::initiate_window()
-{
+void Game::initiate_window(){
+
     window = new sf::RenderWindow;
     window->create(sf::VideoMode(600, 600), "Centipede++");
-    window->setFramerateLimit(5);
+    window->setFramerateLimit(FrameRate);
 }
 
 
