@@ -3,6 +3,8 @@
 #include "Player.h"
 #include "Mushrooms.h"
 
+const int FrameRate = 5;
+
 Game::Game()
 {
     initiate_variables();
@@ -17,10 +19,10 @@ Game::~Game()
 void Game::splashScreen()
 {
     sf::Font font;
-if (!font.loadFromFile("arial.ttf"))
-{
-    // error...
-}
+    if (!font.loadFromFile("arial.ttf"))
+    {
+        // error...
+    }
     sf::Text text;
     text.setFont(font); // font is a sf::Font
     text.setString(" Hold 'Enter' to begin \n Move with the arrow keys \n Hold the 'space' key to fire \n Your goal is to destroy the centipede \n before it eats you");
@@ -103,9 +105,6 @@ bool Game::render()
         continueGame=false;
 
 
-
-
-
     if(bullets[i]->blaster_getPosY()<=0)
     delete_bullets.push_back(i);
     }
@@ -124,26 +123,25 @@ bool Game::render()
 
     //Mushrooms rendering
     mushrm.drawMushrooms(window);
-    
+
 
     window->display();
     firstMove=false;
-
 
     return continueGame;
 }
 
 // private functions
-void Game::initiate_variables()
-{
+void Game::initiate_variables(){
+
     window = nullptr;
 }
 
-void Game::initiate_window()
-{
+void Game::initiate_window(){
+
     window = new sf::RenderWindow;
     window->create(sf::VideoMode(600, 600), "Centipede++");
-    window->setFramerateLimit(5);
+    window->setFramerateLimit(FrameRate);
 }
 
 

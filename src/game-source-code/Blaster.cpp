@@ -38,10 +38,8 @@ float Blaster::blaster_getPosY()
     return blaster.getPosition().y;
 }
 
-void Blaster::initBlaster()
-{
-    blaster.setSize(sf::Vector2f(8.f,8.f));
-    blaster.setFillColor(sf::Color::Green);
-     //   player.setPosition(sf::Vectot2f(300,600));
+void Blaster::initBlaster(){
 
+    blaster.setSize(sf::Vector2f(2.f,8.f));
+    blaster.setFillColor(sf::Color::Red);
 }

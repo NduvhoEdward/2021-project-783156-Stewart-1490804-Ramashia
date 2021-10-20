@@ -1,5 +1,12 @@
 #include "Player.h"
 
+const int VerticalBound = 500;
+const int HorizontalBound = 500;
+const int UpperBound = 50;
+const int LowerBound = 100;
+const int windowHeight = 600;
+const int windowWidth = 600;
+
 Player::Player()
 {
     initPlayer();
@@ -61,21 +68,21 @@ float Player::player_getPosY()
 
 Blaster* Player::fire_bullet()
 {
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-{
-   Blaster* bullet= new Blaster;
-   bullet->set_blaster(player.getPosition().x, player.getPosition().y);
-   return bullet;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+
+        Blaster* bullet= new Blaster;
+        bullet->set_blaster(player.getPosition().x+9, player.getPosition().y);
+        return bullet;
+    }
+
+    return nullptr;
 }
 
-return nullptr;
+void Player::initPlayer(){
 
-}
-
-void Player::initPlayer()
-{
-    player.setSize(sf::Vector2f(20.f,20.f));
-    player.setFillColor(sf::Color::Red);
-     //   player.setPosition(sf::Vectot2f(300,600));
-    player.setPosition(300.f,500.f);
+    auto blasterSize = 20;
+    playerTexture.loadFromFile("resources/blaster.png");
+    player.setTexture(playerTexture);
+    player.scale(sf::Vector2f(0.1538f, 0.1538f));
+    player.setPosition(windowWidth/2,windowHeight-blasterSize);
 }
