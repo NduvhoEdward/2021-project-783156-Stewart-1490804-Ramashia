@@ -9,10 +9,12 @@
 #include <SFML/System.hpp>
 
 #include "Centipede.h"
-#include "Player.h"
-#include <vector>
-#include "Blaster.h"
 #include "Mushrooms.h"
+#include "Player.h"
+#include "Blaster.h"
+
+
+#include <vector>
 
 class Game
 {

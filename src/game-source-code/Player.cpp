@@ -6,6 +6,7 @@ const int UpperBound = 50;
 const int LowerBound = 100;
 const int windowHeight = 600;
 const int windowWidth = 600;
+const int alignBullet = 9;
 
 Player::Player()
 {

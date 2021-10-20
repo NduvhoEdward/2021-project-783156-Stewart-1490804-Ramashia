@@ -10,7 +10,6 @@ const int LowerBound = 100;
 const int windowHeight = 600;
 const int windowWidth = 600;
 
-
 Mushrooms::Mushrooms(){
     //ctor
     mushroomTexture.loadFromFile("resources/mashroom.png");
@@ -75,11 +74,9 @@ void Mushrooms::CreateMushPositions(){
         temp.push_back(y);
 
         mushPositions.push_back(temp);
+
     }
 }
-
-
-
 
 
 

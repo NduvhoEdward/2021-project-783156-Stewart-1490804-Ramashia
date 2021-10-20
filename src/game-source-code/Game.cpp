@@ -1,9 +1,7 @@
 #include "Game.h"
-#include "Centipede.h"
-#include "Player.h"
-#include "Mushrooms.h"
 
-const int FrameRate = 5;
+const int FrameRate = 10;
+const int alignBulletPxl = -9;
 
 Game::Game()
 {
@@ -25,7 +23,7 @@ void Game::splashScreen()
     }
     sf::Text text;
     text.setFont(font); // font is a sf::Font
-    text.setString(" Hold 'Enter' to begin \n Move with the arrow keys \n Hold the 'space' key to fire \n Your goal is to destroy the centipede \n before it eats you");
+    text.setString(" Hold 'Enter' to begin \nMove with the arrow keys \nHold the 'space' key to fire \nYour goal is to destroy the centipede \nBefore it eats you");
     text.setCharacterSize(24); // in pixels, not points!
     text.setFillColor(sf::Color::White);
 
@@ -57,7 +55,6 @@ void Game::update()
         }
     }
     blastr.updateBlaster();
-    //Bullt.UpdateBullet();
 }
 
 bool Game::render()
@@ -89,6 +86,7 @@ bool Game::render()
     pede3.centipede_setPos(pede2.centipede_getPosX(), pede2.centipede_getPosY());
     pede2.centipede_setPos(pede1.centipede_getPosX(), pede1.centipede_getPosY());
     pede1.move_centipede();
+    pede1.special_Move();
 
     Blaster *curBullet;
     curBullet=player.fire_bullet();
@@ -100,15 +98,38 @@ bool Game::render()
       bullets[i]->move_blaster();
       bullets[i]->draw_blaster(window);
 
-      if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede1.centipede_getPosX())
+        if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede1.centipede_getPosX())
         continueGame=false;
 
-      if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede2.centipede_getPosX()&&!firstMove)
+        if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede2.centipede_getPosX()&&!firstMove)
         continueGame=false;
 
+        if(bullets[i]->blaster_getPosY()== pede3.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede3.centipede_getPosX()&&!firstMove)
+        continueGame=false;
 
-    if(bullets[i]->blaster_getPosY()<=0)
-    delete_bullets.push_back(i);
+        if(bullets[i]->blaster_getPosY()== pede4.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede4.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede5.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede5.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede6.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede6.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede7.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede7.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede8.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede8.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede9.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede9.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede10.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede10.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()<=0)
+        delete_bullets.push_back(i);
     }
 
 
@@ -119,7 +140,7 @@ bool Game::render()
     }
     delete_bullets.clear();
 
-    if(player.player_getPosY()== pede1.centipede_getPosY() && player.player_getPosX()== pede1.centipede_getPosX())
+    if(player.player_getPosY()== pede1.centipede_getPosY() && player.player_getPosX()+alignBulletPxl== pede1.centipede_getPosX())
         continueGame=false;
 
 
@@ -136,12 +157,14 @@ bool Game::render()
 void Game::initiate_variables(){
 
     window = nullptr;
+    pede1.curMushrooms=&mushrm;
 }
 
 void Game::initiate_window(){
-
+    const int windowHeight = 600;
+    const int windowWidth = 600;
     window = new sf::RenderWindow;
-    window->create(sf::VideoMode(600, 600), "Centipede++");
+    window->create(sf::VideoMode(windowWidth, windowHeight), "Centipede++");
     window->setFramerateLimit(FrameRate);
 }
 

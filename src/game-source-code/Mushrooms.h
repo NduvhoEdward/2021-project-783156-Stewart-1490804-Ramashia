@@ -17,11 +17,14 @@ enum mushroom_state{
 
 class Mushrooms{
 
+    friend class Centipede;
+
     public:
         Mushrooms();
         virtual ~Mushrooms();
 
         void drawMushrooms(sf::RenderWindow* win);
+
 
     protected:
 
@@ -29,10 +32,13 @@ class Mushrooms{
 
         sf::Texture mushroomTexture;
         std::vector<sf::Sprite> mushroomSprites;
-        std::vector<std::vector<int>> mushPositions;   /// Make vector FLOAT type
+        std::vector<std::vector<int>> mushPositions;  /// Make vector FLOAT type
 
         void CreateMushPositions();
         void createMushrooms(sf::Sprite& mushroom);
+
+
+
 
 };
 
