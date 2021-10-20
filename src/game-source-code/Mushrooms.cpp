@@ -62,7 +62,6 @@ void Mushrooms::CreateMushPositions(){
 
     for(auto i=1; i<possibleYvalues; i++){
         y_coords[i] = y_coords[i-1]+mushroomSize;
-        std::cout << y_coords[i] << std::endl;
     }
 
     for(int i=0; i<Init_Num_Of_Mushrooms; i++){
@@ -78,5 +77,11 @@ void Mushrooms::CreateMushPositions(){
         mushPositions.push_back(temp);
     }
 }
+
+
+
+
+
+
 
 

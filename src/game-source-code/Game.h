@@ -57,6 +57,8 @@ class Game
         //Mushrooms
         Mushrooms mushrm;
 
+        //Blaster
+        Blaster blastr;
 };
 
 #endif // GAME_H

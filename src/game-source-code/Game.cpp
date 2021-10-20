@@ -17,10 +17,10 @@ Game::~Game()
 void Game::splashScreen()
 {
     sf::Font font;
-if (!font.loadFromFile("arial.ttf"))
-{
-    // error...
-}
+    if (!font.loadFromFile("arial.ttf"))
+    {
+        // error...
+    }
     sf::Text text;
     text.setFont(font); // font is a sf::Font
     text.setString(" Hold 'Enter' to begin \n Move with the arrow keys \n Hold the 'space' key to fire \n Your goal is to destroy the centipede \n before it eats you");
@@ -54,6 +54,8 @@ void Game::update()
             window->close();
         }
     }
+    blastr.updateBlaster();
+    //Bullt.UpdateBullet();
 }
 
 bool Game::render()
@@ -124,7 +126,11 @@ bool Game::render()
 
     //Mushrooms rendering
     mushrm.drawMushrooms(window);
-    
+
+    //Blaster
+    blastr.draw_blaster(window);
+
+
 
     window->display();
     firstMove=false;

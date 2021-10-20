@@ -7,8 +7,11 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-class Blaster
-{
+
+class Blaster{
+
+    friend class Bullet;
+
     public:
         Blaster();
         virtual ~Blaster();
@@ -17,14 +20,16 @@ class Blaster
         void move_blaster();
         float blaster_getPosX();
         float blaster_getPosY();
+        void updateBlaster();
 
     protected:
 
     private:
-        sf::RectangleShape blaster;
         void initBlaster();
         bool foward=true;
 
+        sf::Texture blasterTexture;
+        sf::Sprite blaster;
 
 };
 
