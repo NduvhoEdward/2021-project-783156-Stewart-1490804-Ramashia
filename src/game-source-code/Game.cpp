@@ -140,7 +140,7 @@ bool Game::render()
     }
     delete_bullets.clear();
 
-    if(player.player_getPosY()== pede1.centipede_getPosY() && player.player_getPosX()+alignBulletPxl== pede1.centipede_getPosX())
+    if(player.player_getPosY()== pede1.centipede_getPosY() && player.player_getPosX() == pede1.centipede_getPosX())
         continueGame=false;
 
 
