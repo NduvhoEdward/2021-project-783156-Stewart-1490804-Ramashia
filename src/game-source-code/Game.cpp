@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const int FrameRate = 10;
+const int FrameRate = 15;
 const int alignBulletPxl = -9;
 
 Game::Game()
@@ -17,13 +17,13 @@ Game::~Game()
 void Game::splashScreen()
 {
     sf::Font font;
-    if (!font.loadFromFile("arial.ttf"))
+    if (!font.loadFromFile("resources/arial.ttf"))
     {
         // error...
     }
     sf::Text text;
     text.setFont(font); // font is a sf::Font
-    text.setString(" Hold 'Enter' to begin \nMove with the arrow keys \nHold the 'space' key to fire \nYour goal is to destroy the centipede \nBefore it eats you");
+    text.setString("Hold 'Enter' to begin \nMove with the arrow keys \nHold the 'space' key to fire \nYour goal is to destroy the centipede \nBefore it eats you");
     text.setCharacterSize(24); // in pixels, not points!
     text.setFillColor(sf::Color::White);
 

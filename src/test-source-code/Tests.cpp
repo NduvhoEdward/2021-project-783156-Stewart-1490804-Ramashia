@@ -55,5 +55,4 @@ TEST_CASE("Testing Player Fire Bullet")
    Player play;
    auto ptr =play.fire_bullet();
    CHECK(ptr== nullptr);
-
 }
