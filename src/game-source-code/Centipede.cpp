@@ -25,7 +25,6 @@ void Centipede::move_centipede()
     else if(centipede.getPosition().x >= 600 &&centipede.getPosition().y <600)
     {
         centipede.move(-20.f, 20.f);
-
         foward=false;
     }
 
@@ -43,6 +42,25 @@ void Centipede::move_centipede()
     else if(centipede.getPosition().y >= 600)
     {
         centipede.setPosition(0,0);
+    }
+}
+
+void Centipede::special_Move()
+{
+    for(auto x = 0; x<curMushrooms->mushPositions.size(); x++)
+    {
+
+            if(centipede.getPosition().x == curMushrooms->mushPositions[x][0] && centipede.getPosition().y == curMushrooms->mushPositions[x][1] && foward)
+            {
+                centipede.move(-20.f, 20.f);
+                foward=false;
+            }
+            else if(centipede.getPosition().x == curMushrooms->mushPositions[x][0] && centipede.getPosition().y == curMushrooms->mushPositions[x][1] && !foward)
+            {
+                centipede.move(20.f, 20.f);
+                foward=false;
+            }
+
     }
 }
 

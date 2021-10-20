@@ -1,7 +1,4 @@
 #include "Game.h"
-#include "Centipede.h"
-#include "Player.h"
-#include "Mushrooms.h"
 
 Game::Game()
 {
@@ -85,6 +82,7 @@ bool Game::render()
     pede3.centipede_setPos(pede2.centipede_getPosX(), pede2.centipede_getPosY());
     pede2.centipede_setPos(pede1.centipede_getPosX(), pede1.centipede_getPosY());
     pede1.move_centipede();
+    pede1.special_Move();
 
     Blaster *curBullet;
     curBullet=player.fire_bullet();
@@ -100,6 +98,30 @@ bool Game::render()
         continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede2.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede3.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede3.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede4.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede4.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede5.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede5.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede6.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede6.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede7.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede7.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede8.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede8.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede9.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede9.centipede_getPosX()&&!firstMove)
+        continueGame=false;
+
+        if(bullets[i]->blaster_getPosY()== pede10.centipede_getPosY() && bullets[i]->blaster_getPosX()== pede10.centipede_getPosX()&&!firstMove)
         continueGame=false;
 
         if(bullets[i]->blaster_getPosY()<=0)
@@ -121,7 +143,6 @@ bool Game::render()
     //Mushrooms rendering
     mushrm.drawMushrooms(window);
 
-
     window->display();
     firstMove=false;
 
@@ -133,6 +154,7 @@ bool Game::render()
 void Game::initiate_variables()
 {
     window = nullptr;
+    pede1.curMushrooms=&mushrm;
 }
 
 void Game::initiate_window()
