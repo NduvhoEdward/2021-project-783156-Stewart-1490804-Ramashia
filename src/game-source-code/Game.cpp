@@ -54,7 +54,9 @@ void Game::update()
             window->close();
         }
     }
+
     blastr.updateBlaster();
+
 }
 
 bool Game::render()
@@ -93,43 +95,90 @@ bool Game::render()
     if(curBullet!=nullptr)
     bullets.push_back(curBullet);
 
-    for(unsigned i=0;i<bullets.size();i++)
-    {
-      bullets[i]->move_blaster();
-      bullets[i]->draw_blaster(window);
+    for(unsigned i=0; i<bullets.size(); i++){
 
+        /*
+        std::cout << mushrm.mushPositions.size() << std::endl;
+        //Search for bullet-mushroom collision
+        for(auto m=0; m<mushrm.mushPositions.size(); m++){
+            //Compare the bullet position with the mushroom positions directly???
+            if(bullets[i]->blaster_getPosX()==mushrm.mushPositions[m][0]){
+                if(bullets[i]->blaster_getPosY()==mushrm.mushPositions[m][1]){
+
+                    ///Remove the mushroom coordinates at pos m
+                    //mushrm.mushPositions[1].erase(mushrm.mushPositions[1].begin()+m);
+                    unsigned columnToDelete = m;
+                    for (unsigned col = 0; col < mushrm.mushPositions.size(); ++col){
+
+                      if(mushrm.mushPositions[col].size() > columnToDelete){
+                        mushrm.mushPositions[col].erase(mushrm.mushPositions[col].begin() + columnToDelete);
+                      }
+                    }
+                    std::cout << mushrm.mushPositions.size() << std::endl;
+                    ///
+                }
+            }
+        }
+        */
+        ///
+        for(auto m=0; m<mushrm.mushroomSprites.size(); m++)
+        {
+
+            if(bullets[i]->blaster_getPosX()>mushrm.mushroomSprites[m].getPosition().x)
+            {
+                if(bullets[i]->blaster_getPosX()<mushrm.mushroomSprites[m].getPosition().x+20)
+                {
+                    if(bullets[i]->blaster_getPosY()==mushrm.mushroomSprites[m].getPosition().y+20)
+                    {
+                        std::cout << " mushrm.mushPositions.size() " << std::endl;
+                        //Delete a mushroom
+                        mushrm.mushroomSprites.erase(mushrm.mushroomSprites.begin()+m);
+
+                    }
+                }
+            }
+        }
+
+
+        ///
+
+
+        bullets[i]->move_blaster();
+        bullets[i]->draw_blaster(window);
+
+        //To be moved into a bool function
         if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede1.centipede_getPosX())
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede2.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede3.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede3.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede4.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede4.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede5.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede5.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede6.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede6.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede7.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede7.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede8.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede8.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede9.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede9.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()== pede10.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede10.centipede_getPosX()&&!firstMove)
-        continueGame=false;
+            continueGame=false;
 
         if(bullets[i]->blaster_getPosY()<=0)
-        delete_bullets.push_back(i);
+            delete_bullets.push_back(i);
     }
 
 

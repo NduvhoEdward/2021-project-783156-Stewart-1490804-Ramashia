@@ -37,9 +37,7 @@ class Mushrooms{
         void CreateMushPositions();
         void createMushrooms(sf::Sprite& mushroom);
 
-
-
-
+        friend class Game;
 };
 
 

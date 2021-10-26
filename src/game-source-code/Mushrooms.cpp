@@ -2,7 +2,7 @@
 #include "Mushrooms.h"
 #include <iostream>
 
-const int Init_Num_Of_Mushrooms = 50;
+const int Num_Of_Mushrooms = 50;
 const int VerticalBound = 500;
 const int HorizontalBound = 500;
 const int UpperBound = 50;
@@ -27,14 +27,14 @@ Mushrooms::~Mushrooms(){
 
 void Mushrooms::drawMushrooms(sf::RenderWindow* window){
 
-    for(int i=0; i<Init_Num_Of_Mushrooms; i++){
+    for(int i=0; i<Num_Of_Mushrooms; i++){
         window->draw(mushroomSprites[i]);
     }
 }
 
 void Mushrooms::createMushrooms(sf::Sprite& mushroom){
 
-    for(int i=0; i<Init_Num_Of_Mushrooms; i++){
+    for(int i=0; i<Num_Of_Mushrooms; i++){
 
         mushroom.setPosition(mushPositions[i][0],mushPositions[i][1]);
         mushroomSprites.push_back(mushroom);
@@ -63,7 +63,7 @@ void Mushrooms::CreateMushPositions(){
         y_coords[i] = y_coords[i-1]+mushroomSize;
     }
 
-    for(int i=0; i<Init_Num_Of_Mushrooms; i++){
+    for(int i=0; i<Num_Of_Mushrooms; i++){
 
         temp.clear();
         x = x_coords[rand()%possibleXvalues];
@@ -74,7 +74,6 @@ void Mushrooms::CreateMushPositions(){
         temp.push_back(y);
 
         mushPositions.push_back(temp);
-
     }
 }
 
