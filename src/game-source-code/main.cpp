@@ -7,9 +7,9 @@ int main()
 {
     Game game;
 
-    //game.splashScreen();
+    game.splashScreen();
 
-    while (game.Is_Window_Open())
+    while (game.Window_Is_Open())
     {
         game.update();
         if(!game.render())

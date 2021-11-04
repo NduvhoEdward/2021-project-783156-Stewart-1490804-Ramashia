@@ -2,7 +2,7 @@
 #include "Mushrooms.h"
 #include <iostream>
 
-const int Num_Of_Mushrooms = 50;
+//int Num_Of_Mushrooms = 5;
 const int VerticalBound = 500;
 const int HorizontalBound = 500;
 const int UpperBound = 50;
@@ -11,13 +11,19 @@ const int windowHeight = 600;
 const int windowWidth = 600;
 
 Mushrooms::Mushrooms(){
-    //ctor
-    mushroomTexture.loadFromFile("resources/mashroom.png");
-    sf::Sprite mushroom(mushroomTexture);
 
-    mushroom.scale(sf::Vector2f(0.07f, 0.06f));  //0.0625f, 0.055556f
+    Num_Of_Mushrooms = 25;
 
-    CreateMushPositions();
+    laodMushroomTexture();
+
+    sf::Sprite mushroom(healthy_mushTex);
+
+    auto blockSize = 20.0;
+    float scaledWidth = blockSize/mushroom.getTexture()->getSize().x;
+    float scaledheight = blockSize/mushroom.getTexture()->getSize().y;
+    mushroom.scale(sf::Vector2f(scaledWidth,scaledheight));
+
+    createMushPositions();
     createMushrooms(mushroom);
 }
 
@@ -34,14 +40,20 @@ void Mushrooms::drawMushrooms(sf::RenderWindow* window){
 
 void Mushrooms::createMushrooms(sf::Sprite& mushroom){
 
+    auto default_lives = 4;
+
     for(int i=0; i<Num_Of_Mushrooms; i++){
 
         mushroom.setPosition(mushPositions[i][0],mushPositions[i][1]);
         mushroomSprites.push_back(mushroom);
+
+        //Load mushroom lives
+        mushroomLives.push_back(default_lives);
+
     }
 }
 
-void Mushrooms::CreateMushPositions(){
+void Mushrooms::createMushPositions(){
 
     auto x = 0, y = 0;
     auto mushroomSize = 20;
@@ -78,6 +90,28 @@ void Mushrooms::CreateMushPositions(){
 }
 
 
+void Mushrooms::laodMushroomTexture(){
 
+    healthy_mushTex.loadFromFile("resources/youCantSeeMe_mushroom.png");
+    IcanTakeIt_mushTex.loadFromFile("resources/IcanTakeIt_mushTexture.png");
+    nopIcanTakeIt_mushTex.loadFromFile("resources/nopCantTakeIt_mushroom.png");
+}
 
+void Mushrooms::add_a_mushroom_at(float x, float y){
+
+    sf::Sprite mushroom(healthy_mushTex);
+
+    auto blockSize = 20.0;
+    float scaledWidth = blockSize/mushroom.getTexture()->getSize().x;
+    float scaledheight = blockSize/mushroom.getTexture()->getSize().y;
+    mushroom.scale(sf::Vector2f(scaledWidth,scaledheight));
+
+    mushroom.setPosition(x,y);
+    mushroomSprites.push_back(mushroom);
+
+    auto default_lives = 4;
+    mushroomLives.push_back(default_lives);
+
+    Num_Of_Mushrooms++;
+}
 

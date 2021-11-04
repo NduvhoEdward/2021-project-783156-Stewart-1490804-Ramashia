@@ -1,19 +1,15 @@
 #include "Centipede.h"
 
+#include <iostream>
+
 Centipede::Centipede()
 {
     initCentipede();
 }
 
-Centipede::~Centipede()
-{
-    //dtor
-}
-
 void Centipede::draw_centipede(sf::RenderWindow* win)
 {
     win->draw(centipede);
-
 }
 
 void Centipede::move_centipede()
@@ -47,20 +43,18 @@ void Centipede::move_centipede()
 
 void Centipede::special_Move()
 {
-    for(auto x = 0; x<curMushrooms->mushPositions.size(); x++)
+    for(auto x = 0; x<curMushrooms->mushroomSprites.size(); x++)
     {
-
-            if(centipede.getPosition().x == curMushrooms->mushPositions[x][0] && centipede.getPosition().y == curMushrooms->mushPositions[x][1] && foward)
+            if(centipede.getPosition().x == curMushrooms->mushroomSprites[x].getPosition().x && centipede.getPosition().y == curMushrooms->mushroomSprites[x].getPosition().y && foward)
             {
                 centipede.move(-20.f, 20.f);
                 foward=false;
             }
-            else if(centipede.getPosition().x == curMushrooms->mushPositions[x][0] && centipede.getPosition().y == curMushrooms->mushPositions[x][1] && !foward)
+            else if(centipede.getPosition().x == curMushrooms->mushroomSprites[x].getPosition().x && centipede.getPosition().y == curMushrooms->mushroomSprites[x].getPosition().y && !foward)
             {
                 centipede.move(20.f, 20.f);
-                foward=false;
+                foward=true;
             }
-
     }
 }
 
@@ -81,6 +75,14 @@ void Centipede::centipede_setPos(float x, float y)
 
 void Centipede::initCentipede()
 {
-    centipede.setRadius(10.f);
-    centipede.setFillColor(sf::Color::Cyan);
+    centipede_texture.loadFromFile("resources/Centipede.png");
+
+    centipede.setTexture(centipede_texture);
+    auto blockSize = 20.0;
+    float scaledWidth = blockSize/centipede.getTexture()->getSize().x;
+    float scaledheight = blockSize/centipede.getTexture()->getSize().y;
+    centipede.scale(sf::Vector2f(scaledWidth,scaledheight));
 }
+
+
+

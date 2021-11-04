@@ -24,11 +24,13 @@ class Game
 
         void splashScreen();
 
-        const bool Is_Window_Open() const;
+        const bool Window_Is_Open() const;
 
         void update();
         bool render();
 
+        void checkBulletMushCol(auto& i);
+        void erase_segments(int headPos, int segmentPos);
 
     protected:
 
@@ -49,6 +51,8 @@ class Game
         Centipede pede8;
         Centipede pede9;
         Centipede pede10;
+
+        Centipede pede;
 
         sf::RenderWindow*window;
 
