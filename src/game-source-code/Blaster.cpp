@@ -1,5 +1,4 @@
 #include "Blaster.h"
-#include "Bullet.h"
 
 const int VerticalBound = 500;
 const int HorizontalBound = 500;
