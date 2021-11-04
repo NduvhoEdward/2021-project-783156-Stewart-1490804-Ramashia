@@ -15,7 +15,7 @@ class Player
         Player();
         virtual ~Player();
         void draw_player(sf::RenderWindow*);
-        void move_player();
+        void move_player();    //For moving the player/bluster
         Blaster* fire_bullet();
         float player_getPosX();
         float player_getPosY();

@@ -44,7 +44,9 @@ float Blaster::blaster_getPosY(){
 
 void Blaster::initBlaster(){
 
-    blaster.setSize(sf::Vector2f(2.f,8.f));
+    auto bulletHeight = 8.0f;
+    auto bulletBredth = 2.0f;
+    blaster.setSize(sf::Vector2f(bulletBredth,bulletHeight));
     blaster.setFillColor(sf::Color::Red);
 }
 
@@ -58,7 +60,7 @@ void Blaster::updateBlaster(){
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
 
-        if(blaster.getPosition().x>=590)
+        if(blaster.getPosition().x>=windowWidth-10)
             return;
         blaster.move(10.f, 0.f);
     }
@@ -70,7 +72,7 @@ void Blaster::updateBlaster(){
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 
-        if(blaster.getPosition().y>=590)
+        if(blaster.getPosition().y>=windowHeight-10)
             return;
         blaster.move(0.f, 10.f);
     }

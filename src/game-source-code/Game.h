@@ -21,18 +21,10 @@ class Game
     public:
         Game();
         virtual ~Game();
-
-        void splashScreen();
-
-        const bool Window_Is_Open() const;
-
         void update();
         bool render();
-
-        void checkBulletMushCol(auto& i);
-        void erase_segments(int headPos, int segmentPos);
-
-    protected:
+        void splashScreen();
+        const bool Window_Is_Open() const;
 
     private:
         void initiate_variables();
@@ -40,6 +32,7 @@ class Game
         bool firstMove=true;
         bool continueGame=true;
         bool gameBegin=false;
+        void checkBulletMushCol(auto& i);
 
         Centipede pede1;
         Centipede pede2;
@@ -65,6 +58,8 @@ class Game
 
         //Blaster
         Blaster blastr;
+
+        friend class Tests;
 };
 
 #endif // GAME_H

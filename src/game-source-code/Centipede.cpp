@@ -41,6 +41,7 @@ void Centipede::move_centipede()
     }
 }
 
+//For  cases when there is a centipede-mushroon collision
 void Centipede::special_Move()
 {
     for(auto x = 0; x<curMushrooms->mushroomSprites.size(); x++)
@@ -84,5 +85,8 @@ void Centipede::initCentipede()
     centipede.scale(sf::Vector2f(scaledWidth,scaledheight));
 }
 
+bool Centipede::is_still_alive(){
+    return segments;
+}
 
 

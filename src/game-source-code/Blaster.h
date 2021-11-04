@@ -22,8 +22,6 @@ class Blaster{
         float blaster_getPosY();
         void updateBlaster();
 
-    protected:
-
     private:
         void initBlaster();
         bool foward=true;

@@ -1,8 +1,10 @@
 #include "Game.h"
 
-const int FrameRate = 25;
-const int alignBulletPxl = -9;
+const int FrameRate = 25;       //The game's frame rate
+const int alignBulletPxl = -9;  //This is used to make sure the bullet origin is at the cether of the bluster
 
+
+//The function for handling the game looping
 Game::Game()
 {
     initiate_variables();
@@ -14,6 +16,7 @@ Game::~Game()
     delete window;
 }
 
+//This is for displaying the splash message before the game begins
 void Game::splashScreen()
 {
     sf::Font font;
@@ -36,6 +39,7 @@ void Game::splashScreen()
     }
 }
 
+//For checking if the windows is open
 const bool Game::Window_Is_Open() const
 {
     return window->isOpen();
@@ -51,7 +55,6 @@ void Game::update()
         }
     }
 
-    blastr.updateBlaster();
 
 }
 
@@ -101,7 +104,10 @@ bool Game::render()
         //To be moved into a bool function
         if(bullets[i]->blaster_getPosY()== pede1.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede1.centipede_getPosX())
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(pede1.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede1.centipede_getPosX();
             auto y = pede1.centipede_getPosY();
@@ -112,7 +118,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede2.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede2.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede2.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede2.centipede_getPosX();
             auto y = pede2.centipede_getPosY();
@@ -123,7 +132,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede3.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede3.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede3.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede3.centipede_getPosX();
             auto y = pede3.centipede_getPosY();
@@ -134,7 +146,10 @@ bool Game::render()
         }
         if(bullets[i]->blaster_getPosY()== pede4.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede4.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede4.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede4.centipede_getPosX();
             auto y = pede4.centipede_getPosY();
@@ -145,7 +160,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede5.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede5.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede5.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede5.centipede_getPosX();
             auto y = pede5.centipede_getPosY();
@@ -155,7 +173,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede6.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede6.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede6.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede6.centipede_getPosX();
             auto y = pede6.centipede_getPosY();
@@ -164,7 +185,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede7.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede7.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede7.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede7.centipede_getPosX();
             auto y = pede7.centipede_getPosY();
@@ -174,7 +198,11 @@ bool Game::render()
             //Turn the Centipede, the behind part
         }
         else if(bullets[i]->blaster_getPosY()== pede8.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede8.centipede_getPosX()&&!firstMove)
-        {   //continueGame=false;
+        {
+            Centipede::segments--;
+            if(!pede8.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede8.centipede_getPosX();
             auto y = pede8.centipede_getPosY();
@@ -185,7 +213,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede9.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede9.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede9.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede9.centipede_getPosX();
             auto y = pede9.centipede_getPosY();
@@ -196,7 +227,10 @@ bool Game::render()
         }
         else if(bullets[i]->blaster_getPosY()== pede10.centipede_getPosY() && bullets[i]->blaster_getPosX()+alignBulletPxl== pede10.centipede_getPosX()&&!firstMove)
         {
-            //continueGame=false;
+            Centipede::segments--;
+            if(!pede10.is_still_alive()){
+                    continueGame=false;
+            }
             // Turn pedeX into a mushroom
             auto x = pede10.centipede_getPosX();
             auto y = pede10.centipede_getPosY();
@@ -225,6 +259,8 @@ bool Game::render()
     //Mushrooms rendering
     mushrm.drawMushrooms(window);
 
+    blastr.updateBlaster();
+
     window->display();
     firstMove=false;
 
@@ -246,6 +282,7 @@ void Game::initiate_window(){
     window->setFramerateLimit(FrameRate);
 }
 
+//For checking if there is a bullet-mushroom collision
 void Game::checkBulletMushCol(auto& i)
 {
     for(auto m=0; m<mushrm.mushroomSprites.size(); m++)

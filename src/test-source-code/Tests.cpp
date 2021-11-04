@@ -56,3 +56,17 @@ TEST_CASE("Testing Player Fire Bullet")
    auto ptr =play.fire_bullet();
    CHECK(ptr== nullptr);
 }
+
+TEST_CASE("End game centipede hit")
+{
+    Centipede cent;
+    Blaster blast;
+    float x1 = cent.centipede_getPosX(), y1 = cent.centipede_getPosY(), x2 = blast.blaster_getPosX(), y2 = blast.blaster_getPosY();
+    CHECK(x1 == x2);
+    CHECK(y1 == y2);
+
+    cent.segments = 0;
+    CHECK(cent.is_still_alive() == false);
+}
+
+

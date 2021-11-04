@@ -14,17 +14,18 @@ class Mushrooms{
     public:
         Mushrooms();
         virtual ~Mushrooms();
-        void laodMushroomTexture();
         void drawMushrooms(sf::RenderWindow* win);
-        void add_a_mushroom_at(float x, float y);
+
 
     protected:
 
     private:
 
+        void laodMushroomTexture();
         sf::Texture healthy_mushTex;
         sf::Texture IcanTakeIt_mushTex;
         sf::Texture nopIcanTakeIt_mushTex;
+        void add_a_mushroom_at(float x, float y);
 
         std::vector<sf::Sprite> mushroomSprites;
         std::vector<int> mushroomLives;

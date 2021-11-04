@@ -29,16 +29,13 @@ class Centipede
         Centipede();
         void draw_centipede(sf::RenderWindow*);
         void move_centipede();
-        void special_Move();
+        void special_Move();  ///For  cases when there is a centipede-mushroon collision
         float centipede_getPosX();
         float centipede_getPosY();
         void centipede_setPos(float x, float y);
         Mushrooms *curMushrooms;
-
-        void createCentipd(int segments, int x, int y);
-        void split_the_centipd();
-
-    protected:
+        bool is_still_alive();
+        inline static int segments = 10;
 
     private:
         //sf::CircleShape centipede;
@@ -48,7 +45,6 @@ class Centipede
         void initCentipede();
         bool foward=true;
         std::vector<std::vector<int>> mushroom_Positions;
-
 };
 
 #endif // CENTIPEDE_H

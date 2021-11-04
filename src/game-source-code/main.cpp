@@ -14,7 +14,6 @@ int main()
         game.update();
         if(!game.render())
             break;
-
     }
 
     return 0;
