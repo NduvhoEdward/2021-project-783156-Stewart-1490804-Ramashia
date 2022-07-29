@@ -1,1 +1,1 @@
-# 2021-project-783156-Stewart-1490804-Ramashia 
+# A CPP Implementation of the vintage game "Centipede", with some "MiniPede" functionalities as well.
