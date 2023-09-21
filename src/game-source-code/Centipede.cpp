@@ -76,7 +76,7 @@ void Centipede::centipede_setPos(float x, float y)
 
 void Centipede::initCentipede()
 {
-    centipede_texture.loadFromFile("resources/Centipede.png");
+    centipede_texture.loadFromFile("../../assets/Centipede.png");
 
     centipede.setTexture(centipede_texture);
     auto blockSize = 20.0;

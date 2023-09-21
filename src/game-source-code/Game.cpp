@@ -20,7 +20,7 @@ Game::~Game()
 void Game::splashScreen()
 {
     sf::Font font;
-    if (!font.loadFromFile("resources/arial.ttf")){}
+    if (!font.loadFromFile("../../assets/arial.ttf")){}
 
     sf::Text text;
     text.setFont(font); // font is a sf::Font
@@ -54,8 +54,6 @@ void Game::update()
             window->close();
         }
     }
-
-
 }
 
 bool Game::render()
@@ -134,7 +132,7 @@ bool Game::render()
         {
             Centipede::segments--;
             if(!pede3.is_still_alive()){
-                    continueGame=false;
+                    continueGame=false; 
             }
             // Turn pedeX into a mushroom
             auto x = pede3.centipede_getPosX();

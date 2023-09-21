@@ -92,9 +92,9 @@ void Mushrooms::createMushPositions(){
 
 void Mushrooms::laodMushroomTexture(){
 
-    healthy_mushTex.loadFromFile("resources/youCantSeeMe_mushroom.png");
-    IcanTakeIt_mushTex.loadFromFile("resources/IcanTakeIt_mushTexture.png");
-    nopIcanTakeIt_mushTex.loadFromFile("resources/nopCantTakeIt_mushroom.png");
+    healthy_mushTex.loadFromFile("../../assets/youCantSeeMe_mushroom.png");
+    IcanTakeIt_mushTex.loadFromFile("../../assets/IcanTakeIt_mushTexture.png");
+    nopIcanTakeIt_mushTex.loadFromFile("../../assets/nopCantTakeIt_mushroom.png");
 }
 
 void Mushrooms::add_a_mushroom_at(float x, float y){

@@ -83,7 +83,7 @@ Blaster* Player::fire_bullet()
 void Player::initPlayer(){
 
     auto blasterSize = 20;
-    playerTexture.loadFromFile("resources/blaster.png");
+    playerTexture.loadFromFile("../../assets/Blaster.png");
     player.setTexture(playerTexture);
     player.scale(sf::Vector2f(0.1538f, 0.1538f));
     player.setPosition(windowWidth/2,windowHeight-blasterSize);
