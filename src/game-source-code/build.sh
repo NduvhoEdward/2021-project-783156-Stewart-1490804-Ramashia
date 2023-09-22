@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The name of the output executable
-OUTPUT_EXECUTABLE="Centipede"
+OUTPUT_EXECUTABLE="CentipedeGame"
 
 # Compiler options (e.g., C++17 and optimizations)
 CXX_FLAGS="-std=c++20 -O2"

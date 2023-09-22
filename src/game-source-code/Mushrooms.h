@@ -16,7 +16,6 @@ class Mushrooms{
         virtual ~Mushrooms();
         void drawMushrooms(sf::RenderWindow* win);
 
-
     protected:
 
     private:
