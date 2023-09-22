@@ -4,10 +4,20 @@ Welcome to the Centipede Game project! This classic game is implemented using C+
 
 ## Getting Started
 
-To run the game, you'll need to compile it. Use the provided bash script (`build.sh`) to compile the source code. Make sure you have the SFML library installed on your system.
+To run the game, clone the repo, navigate to the game-source-code directory, where there'll a unix binary, and execute it. 
+
+On unix based system, you can use the snippet below. 
+```bash
+git clone https://github.com/NduvhoEdward/CPP_Centipede 
+cd CPP_Centipede/src/game-source-code 
+./Centipede++ 
+```
+
+If you make any changes to the code, you'll need to re-compile it. Use the provided bash script (`build.sh`) to compile the source code. Make sure you have the SFML library installed on your system.
 
 ```bash
-# Compile the project
+# Compile the project 
+cd CPP_Centipede/src/game-source-code 
 ./build.sh
 ```
 
@@ -55,10 +65,9 @@ Ensure that you have SFML installed on your system to compile and run the game.
 ## Acknowledgments
 
 This Centipede Game project is created as part of a learning journey for Electrical and Information Engineering undergraduates and showcases skills in C++ game development. 
-Special thanks to my development partner [Claire Stewart](https://github.com/Claire-Stewart1).
+Special thanks to my development partner [Claire Stewart](https://github.com/Claire-Stewart1) for her great and valuable contribution to the development of this little vintage game.
 
-Have fun playing the Centipede Game!
+Have fun!
 
-![Centipede Game Screenshot](screenshot.png)
-```
-```
+![Game Splashscreen Screenshot](./assets/splash_screen.png)
+![Gameplay Screenshot](./assets/gameplay.png)
